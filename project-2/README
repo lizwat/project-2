@@ -1,0 +1,21 @@
+Elizabeth Waters
+emw119
+
+Had To edit receiver.py to read from one call of recv() instead of in loop, since whole message can be sent in one of size 
+4096
+The final message is printed to the screen, but for some reason f.write() does not write the value to download, but I can see
+that the message is correct because it prints?
+for some reason, START ACK never makes it to sender, so I had to edit out the code block that waits for start ack
+Hence, it currently breaks if start message is lost, but if start message is sent it works as it should
+
+call with 
+
+  python3 receiver.py 1024 2 &
+  
+  (in new window)
+  
+  python3 sender.py 127.0.0.1 1024 2 &
+  
+  
+  
+  
